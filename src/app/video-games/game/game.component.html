@@ -1,0 +1,14 @@
+<div class="game-wrapper">
+  <span class="score mobile">{{ convertRating(game.rating) }}</span>
+
+  <div class="game">
+    <div class="game__info">
+      <h2 class="game__title">{{ game.name }}</h2>
+      <p class="game__release-date">
+        Release Date: {{ game.first_release_date | date: "dd/MM/yyyy" }}
+      </p>
+      <p class="game__summery">{{ game.summary }}</p>
+    </div>
+    <span class="score">{{ convertRating(game.rating) }}</span>
+  </div>
+</div>

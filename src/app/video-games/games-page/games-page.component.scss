@@ -1,0 +1,27 @@
+.games {
+  display: flex;
+  gap: 30px;
+
+  &__sidebar {
+    width: 350px;
+  }
+
+  &__list {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .games {
+    flex-direction: column;
+    gap: 0;
+
+    &__sidebar {
+      width: 100%;
+    }
+
+    &__list {
+      margin-top: 60px;
+    }
+  }
+}

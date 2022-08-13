@@ -1,0 +1,45 @@
+<div class="contact-form-wrapper">
+  <h3 class="contact-form-title">Contact Form</h3>
+  <form [formGroup]="contactForm" class="form">
+    <div class="form__inputs-box inputs-box">
+      <app-input
+        [control]="contactForm.get('name')"
+        label="Name"
+        [isRequired]="true"
+      ></app-input>
+
+      <app-input
+        [control]="contactForm.get('emailAddress')"
+        label="Email Address"
+        [isRequired]="true"
+      ></app-input>
+    </div>
+
+    <div class="form__textarea-box textarea-box">
+      <label class="textarea__label"
+        >Message <span class="required">*</span></label
+      >
+      <textarea class="textarea" formControlName="message"></textarea>
+
+      <div class="error-box" *ngIf="contactForm.get('message')?.errors">
+        <p
+          class="error"
+          *ngIf="
+            contactForm.get('message').errors['required'] &&
+            contactForm.get('message').touched
+          "
+        >
+          This field is required
+        </p>
+      </div>
+    </div>
+  </form>
+
+  <button
+    [disabled]="contactForm.invalid"
+    class="send-button"
+    (click)="sendContact()"
+  >
+    Send
+  </button>
+</div>

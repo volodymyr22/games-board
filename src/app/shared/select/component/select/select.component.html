@@ -1,0 +1,39 @@
+<div class="select">
+  <div class="select__direction">
+    <svg-icon
+      (click)="changeDirection()"
+      [ngClass]="{ revert: isRevert }"
+      class="select__direction_icon"
+      src="/assets/icons/arrow.svg"
+    ></svg-icon>
+  </div>
+
+  <span class="no-order" *ngIf="!list.length">{{ "No Order" }}</span>
+
+  <div
+    class="select__field"
+    [ngClass]="{ open: isOpen }"
+    (click)="isOpen = !isOpen"
+    *ngIf="list.length"
+  >
+    <span class="select__current-item">{{ selectedItem }}</span>
+
+    <svg-icon
+      class="open-list__arrow"
+      src="/assets/icons/triangle-arrow.svg"
+    ></svg-icon>
+
+    <div class="select__list">
+      <p
+        class="select__list-item"
+        [ngClass]="{ none: item === selectedItem }"
+        *ngFor="let item of list"
+        (click)="selectItem(item)"
+      >
+        {{ item }}
+      </p>
+    </div>
+
+    <div class="select-menu-overlay"></div>
+  </div>
+</div>

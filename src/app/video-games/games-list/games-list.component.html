@@ -1,0 +1,19 @@
+<div class="game-list-wrapper">
+  <div class="games-list" *ngIf="gameList$ | async as games; else loader">
+    <app-game
+      class="game"
+      *ngFor="
+        let game of games
+          | searchGame: searchTex
+          | revertArray: isRevert
+          | sortGames: sortBy
+          | scoreGameFilter: score
+      "
+      [game]="game"
+    ></app-game>
+  </div>
+
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>
+</div>

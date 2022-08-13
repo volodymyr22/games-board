@@ -1,0 +1,25 @@
+<div class="input-box">
+  <label class="input__label"
+    >{{ label }} <span class="required" *ngIf="isRequired">*</span></label
+  >
+  <input
+    class="input"
+    [formControl]="control"
+    [placeholder]="placeholder"
+    [mask]="mask"
+  />
+
+  <div class="error-box" *ngIf="control.errors">
+    <p class="error" *ngIf="control.errors['required'] && control.touched">
+      This field is required
+    </p>
+
+    <p class="error" *ngIf="control.errors['incorrectValue']">
+      Incorrect value
+    </p>
+
+    <p class="error" *ngIf="control.errors['email']">
+      Incorrect format. Expect email
+    </p>
+  </div>
+</div>

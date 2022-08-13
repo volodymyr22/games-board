@@ -1,0 +1,35 @@
+<div class="filter">
+  <h3 class="filter__title">Filter Results</h3>
+
+  <form [formGroup]="filterForm" class="filter__form form">
+    <div class="filter__text-input text-input form-item">
+      <app-input
+        [control]="filterForm.get('name')"
+        label="Name (contains)"
+      ></app-input>
+    </div>
+
+    <div class="filter__wrap-box wrap-box">
+      <div class="form-item min-score">
+        <app-input
+          [control]="filterForm.get('minScore')"
+          label="Minimum Score"
+          placeholder="1 - 10"
+          mask="0 - 99"
+          format="1 - 10"
+        ></app-input>
+      </div>
+
+      <div class="select form-item">
+        <label class="select__label label">Order By</label>
+        <app-select
+          (select)="selectOrderItem($event)"
+          (revert)="revertList($event)"
+          [list]="orderList"
+        ></app-select>
+      </div>
+
+      <button class="filter-button" (click)="clearFilter()">Clear</button>
+    </div>
+  </form>
+</div>

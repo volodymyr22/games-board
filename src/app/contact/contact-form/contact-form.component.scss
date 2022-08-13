@@ -1,0 +1,102 @@
+@import "./src/styles";
+
+.form,
+.inputs-box,
+.contact-form-wrapper {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.contact-form-wrapper {
+  align-items: flex-end;
+  background-color: var(--card-bg);
+  padding: 20px;
+}
+
+.contact-form-wrapper,
+.form {
+  flex-direction: column;
+}
+
+.contact-form-title,
+.form {
+  width: 100%;
+}
+
+.form {
+  align-items: center;
+
+  &__inputs-box,
+  &__textarea-box {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  &__inputs-box {
+    gap: 30px;
+  }
+
+  &__textarea-box {
+    position: relative;
+
+    & .error-box {
+      position: absolute;
+      top: 150px;
+      left: 0;
+    }
+
+    & .error {
+      color: var(--red);
+      font-size: 14px;
+    }
+  }
+
+  & .textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    color: var(--text-color);
+    background-color: var(--input-bg);
+    font-size: 14px;
+    border: none;
+    outline: none;
+    resize: none;
+
+    &__label {
+      line-height: 30px;
+      color: #ffffff;
+    }
+  }
+}
+
+.send-button {
+  @include button;
+  margin-top: 10px;
+}
+
+@media (max-width: 1024px) {
+  .send-button {
+    width: 100%;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inputs-box {
+    flex-direction: column;
+  }
+
+  .error {
+    font-size: 12px;
+  }
+
+  .textarea-box,
+  inputs-box {
+    margin-top: 40px;
+  }
+
+  .inputs-box {
+    gap: 40px;
+  }
+}
